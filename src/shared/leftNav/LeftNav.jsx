@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import '../../../src/style/style.css'
 
 const LeftNav = () => {
     const [categories, setCategories] = useState([]);
@@ -6,12 +8,22 @@ const LeftNav = () => {
     useEffect(()=>{
         fetch('http://localhost:5000/categories')
         .then(res => res.json())
-        .then(data => console.log(data))
+        .then(data => setCategories(data))
         .catch(error => console.log(error));
     }, [])
     return (
-        <div>
-            <h1>lef nav</h1>
+        <div className=''>
+            <h3>All Categories</h3>
+            <h4 className='bg text-center py-3 rounded mt-3'>National News</h4>
+            <div className='ms-5 d-grid gap-3 mt-3 ps-4'>
+                {
+                    categories.map(category => <h5
+                        key={category.id}
+                    >
+                        <Link className='text-decoration-none text-secondary'>{category.name}</Link>
+                    </h5>)
+                }
+            </div>
         </div>
     );
 };
