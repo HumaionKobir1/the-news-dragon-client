@@ -14,7 +14,7 @@ const Header = () => {
                 <p className='text-secondary'><small>Journalism Without Fear or Favour</small></p>
                 <p>{moment().format("dddd, MMMM D, YYYY")}</p>
             </div>
-            <div className='d-flex gap-2'>
+            <div className='d-flex gap-2 mb-3'>
                 <Button variant="danger">Latest</Button>
                 <Marquee speed={100} className='text-danger'>
                     I can be a React component, multiple React components, or just some text.
