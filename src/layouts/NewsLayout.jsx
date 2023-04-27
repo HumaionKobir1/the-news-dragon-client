@@ -10,7 +10,7 @@ const NewsLayout = () => {
     return (
         <div>
             <Header></Header>
-            <Container className='mt-5'>
+            <Container className='mt-3'>
                 <Row>
                     <Col lg={9}>
                         <Outlet></Outlet>

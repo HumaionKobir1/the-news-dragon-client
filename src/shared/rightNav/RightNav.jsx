@@ -10,17 +10,17 @@ const RightNav = () => {
     return (
         <>
             <div>
-            <h2>Login with</h2>
+            <h3>Login with</h3>
             <Button  variant="outline-primary"><FaGoogle /> Login with Google</Button>{' '}
             <Button className='mt-1' variant="outline-secondary"><FaGithub/> Login wth Github</Button>{' '}
             </div>
 
             <div className='mt-3'>
                 <ListGroup>
-                    <h2>Find Us On</h2>
-                    <ListGroup.Item className='p-3'><FaFacebook></FaFacebook> Facebook</ListGroup.Item>
-                    <ListGroup.Item className='p-3'><FaTwitter></FaTwitter> Twitter in</ListGroup.Item>
-                    <ListGroup.Item className='p-3'><FaInstagram></FaInstagram> Instagram</ListGroup.Item>
+                    <h3>Find Us On</h3>
+                    <ListGroup.Item className='p-2'><FaFacebook></FaFacebook> Facebook</ListGroup.Item>
+                    <ListGroup.Item className='p-2'><FaTwitter></FaTwitter> Twitter in</ListGroup.Item>
+                    <ListGroup.Item className='p-2'><FaInstagram></FaInstagram> Instagram</ListGroup.Item>
                 </ListGroup>
             </div>
 

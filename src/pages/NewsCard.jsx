@@ -11,7 +11,7 @@ const NewsCard = ({news}) => {
 
     return (
         <div>
-            <Card className=" mb-4">
+            <Card className=" mb-3">
                 <Card.Header className='d-flex align-items-center'>
                     <Image style={{height: '40px'}} src={author.img} roundedCircle/>
                     <div className='ms-2 flex-grow-1'>
