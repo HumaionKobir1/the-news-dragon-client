@@ -6,17 +6,13 @@ import LeftNav from '../shared/leftNav/LeftNav';
 import RightNav from '../shared/rightNav/RightNav';
 import { Col, Container, Row } from 'react-bootstrap';
 
-const Main = () => {
+const NewsLayout = () => {
     return (
         <div>
             <Header></Header>
             <Container className='mt-5'>
                 <Row>
-                    <Col lg={3}>
-                        <LeftNav></LeftNav>
-                    </Col>
-
-                    <Col lg={6}>
+                    <Col lg={9}>
                         <Outlet></Outlet>
                     </Col>
 
@@ -30,4 +26,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default NewsLayout;
