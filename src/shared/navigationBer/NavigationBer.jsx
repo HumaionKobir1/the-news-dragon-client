@@ -14,10 +14,10 @@ const NavigationBer = () => {
                 <Container>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
-                    <Nav className="mx-auto mt-auto d-flex gap-3">
-                        <Link  to='/category/0'>Home</Link>
-                        <Link  to='/category/0'>About</Link>
-                        <Link  to='/category/0'>Contact</Link>
+                    <Nav className="mx-auto mt-auto d-flex gap-3 ">
+                        <Link className='text-decoration-none text-secondary'  to='/category/0'>Home</Link>
+                        <Link className='text-decoration-none text-secondary'  to='/category/0'>About</Link>
+                        <Link className='text-decoration-none text-secondary'  to='/category/0'>Contact</Link>
                         
                     </Nav>
                     <Nav>
