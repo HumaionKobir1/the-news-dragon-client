@@ -1,0 +1,41 @@
+import React from 'react';
+import { useContext } from 'react';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import { FaUserCircle } from 'react-icons/fa';
+
+const NavigationBer = () => {
+    const {user} = useContext(AuthContext);
+
+    return (
+        <Container>
+            <Navbar collapseOnSelect expand="lg"  variant="light">
+                <Container>
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                    <Nav className="mx-auto">
+                        <Link className='' to='/'><Nav.Link href="">Home</Nav.Link></Link>
+                        <Nav.Link href="#pricing">About</Nav.Link>
+                        <Nav.Link href="#pricing">Career</Nav.Link>
+                    </Nav>
+                    <Nav>
+                        {user && <Nav.Link href="#deets" className='mt-auto'>
+                            <FaUserCircle style={{fontSize: '2rem'}}></FaUserCircle> {user.displayName}
+                        </Nav.Link>}
+
+                        <Nav.Link eventKey={2} href="#memes">
+                        {user ? 
+                        <Button variant="secondary">LogOut</Button>:
+                        <Link><Button variant="secondary">LogIn</Button></Link>
+                        }
+                        </Nav.Link>
+                    </Nav>
+                    </Navbar.Collapse>
+                </Container>
+            </Navbar>
+        </Container>
+    );
+};
+
+export default NavigationBer;
