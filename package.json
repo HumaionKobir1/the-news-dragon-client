@@ -19,7 +19,10 @@
     "react-dom": "^18.2.0",
     "react-fast-marquee": "^1.5.2",
     "react-icons": "^4.8.0",
+    "react-rating": "^2.0.5",
+    "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.10.0",
+    "react-simple-star-rating": "^5.1.7",
     "sort-by": "^1.2.0"
   },
   "devDependencies": {
