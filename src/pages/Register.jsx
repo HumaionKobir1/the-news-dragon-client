@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../style/style.css'
+import { useContext } from 'react';
+import { AuthContext } from '../providers/AuthProvider';
 
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext)
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -17,6 +21,15 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, photo, email, password)
+
+        createUser(email, password)
+            .then(result => {
+                const createdUser = result.user;
+                console.log(createdUser);
+            })
+            .catch(error =>{
+                console.log(error);
+            })
     };
 
     const togglePasswordVisibility = () => {

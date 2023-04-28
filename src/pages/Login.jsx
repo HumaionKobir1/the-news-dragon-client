@@ -1,9 +1,12 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Form, Button, Container, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import '../style/style.css'
+import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
+    const {signIn} = useContext(AuthContext);
+
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -11,6 +14,18 @@ const Login = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         // perform login logic here
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        
+        signIn(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser);
+        })
+        .catch(error => {
+            console.log(error);
+        })
     };
 
     const togglePasswordVisibility = () => {
@@ -30,8 +45,7 @@ const Login = () => {
                     className='bg mb-3'
                     type="email"
                     placeholder="Enter email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    name='email'
                 />
                 </Form.Group>
 
@@ -42,8 +56,7 @@ const Login = () => {
                     className='bg'
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    name='password'
                     />
                     <Form.Check
                     type="checkbox"
