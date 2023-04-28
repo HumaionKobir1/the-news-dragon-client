@@ -11,7 +11,12 @@ const Register = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // perform login logic here
+        const form = event.target;
+        const name = form.name.value;
+        const photo = form.photo.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(name, photo, email, password)
     };
 
     const togglePasswordVisibility = () => {
@@ -26,15 +31,25 @@ const Register = () => {
                 <h3 className="text-center mb-2 text-secondary">Please Register your account</h3>
                 <hr className='mb-4' />
 
-                <Form.Group controlId="formBasicEmail">
+                <Form.Group controlId="formBasicName">
                 <Form.Label>User Name</Form.Label>
                 <Form.Control
                     required
                     className='bg mb-3'
                     type="text"
                     placeholder="Enter Your Name"
-                    value={name}
-                    onChange={(e) => setEmail(e.target.value)}
+                    name='name'                    
+                />
+                </Form.Group>
+
+                <Form.Group controlId="formBasicName">
+                <Form.Label>Your photo url</Form.Label>
+                <Form.Control
+                    required
+                    className='bg mb-3'
+                    type="text"
+                    placeholder="Enter Your Name"
+                    name='photo'                    
                 />
                 </Form.Group>
 
@@ -45,8 +60,7 @@ const Register = () => {
                     className='bg mb-3'
                     type="email"
                     placeholder="Enter email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    name= 'email'
                 />
                 </Form.Group>
 
@@ -58,8 +72,7 @@ const Register = () => {
                     className='bg'
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
+                    name='password'
                     />
                     <Form.Check
                     type="checkbox"
