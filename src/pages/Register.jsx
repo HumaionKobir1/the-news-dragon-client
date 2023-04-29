@@ -37,7 +37,7 @@ const Register = () => {
     };
 
     return (
-        <Col className='mx-auto shadow-sm p-3 mb-5 bg-white rounded' xl={4} xs={12} mt-2>
+        <Col className='mx-auto shadow-sm p-3 mb-5 bg-white rounded' xl={4} xs={12}>
 
         <Container className="p-5  mt-3">
             <Form onSubmit={handleSubmit}>
@@ -96,15 +96,13 @@ const Register = () => {
                 </div>
                 </Form.Group>
 
-                <Button className='w-100' variant="primary" type="submit" block>
+                <Button className='w-100' variant="primary" type="submit">
                 Sign Up
                 </Button>
                     
                 <p className="mt-3 mb-0 text-center text-secondary">
                 Already have an account?{" "}
-                <a href="">
                     <Link to="/login"><u>Login</u></Link>
-                </a>
                 </p>
             </Form>
         </Container>

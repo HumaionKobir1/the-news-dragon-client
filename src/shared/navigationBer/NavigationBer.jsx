@@ -6,7 +6,13 @@ import { AuthContext } from '../../providers/AuthProvider';
 import { FaUserCircle } from 'react-icons/fa';
 
 const NavigationBer = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logOut} = useContext(AuthContext);
+
+    const  handleLogOut = ()=> {
+        logOut()
+        .then()
+        .catch(error => console.log(error))
+    }
 
     return (
         <Container>
@@ -21,16 +27,14 @@ const NavigationBer = () => {
                         
                     </Nav>
                     <Nav>
-                        {user && <Nav.Link href="#deets" className='mt-auto'>
+                        {user && <Nav.Link  className='mt-auto'>
                             <FaUserCircle style={{fontSize: '2rem'}}></FaUserCircle> {user.displayName}
                         </Nav.Link>}
 
-                        <Nav.Link eventKey={2} href="#memes">
                         {user ? 
-                        <Button variant="secondary">LogOut</Button>:
+                        <Button onClick={handleLogOut} variant="secondary">LogOut</Button>:
                         <Link to="/login"><Button variant="secondary">LogIn</Button></Link>
                         }
-                        </Nav.Link>
                     </Nav>
                     </Navbar.Collapse>
                 </Container>

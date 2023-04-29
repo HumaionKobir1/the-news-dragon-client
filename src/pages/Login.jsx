@@ -1,14 +1,13 @@
 import React, { useContext, useState } from 'react';
 import { Form, Button, Container, Col } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../style/style.css'
 import { AuthContext } from '../providers/AuthProvider';
 
 const Login = () => {
     const {signIn} = useContext(AuthContext);
+    const navigate = useNavigate();
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = (event) => {
@@ -21,7 +20,7 @@ const Login = () => {
         signIn(email, password)
         .then(result => {
             const loggedUser = result.user;
-            console.log(loggedUser);
+            navigate('/category/0')
         })
         .catch(error => {
             console.log(error);
@@ -33,7 +32,7 @@ const Login = () => {
     };
 
     return (
-        <Col className='mx-auto shadow-sm p-3 mb-5 bg-white rounded' xl={4} xs={12} mt-2>
+        <Col className='mx-auto shadow-sm p-3 mb-5 bg-white rounded' xl={4} xs={12}>
 
         <Container className="p-5  rounded ">
             <Form onSubmit={handleSubmit}>
@@ -68,7 +67,7 @@ const Login = () => {
                 </Form.Group>
 
                 <div className='d-flex justify-content-between align-items-center'>
-                    <Button variant="primary" type="submit" block>
+                    <Button variant="primary" type="submit" >
                     Submit
                     </Button>
                     
@@ -77,9 +76,7 @@ const Login = () => {
                 
                 <p className="mt-3 mb-0 text-center text-secondary">
                 Don't have an account?{" "}
-                <a href="">
                     <Link to="/register"><u>Register</u></Link>
-                </a>
                 </p>
             </Form>
         </Container>
