@@ -8,9 +8,7 @@ import { AuthContext } from '../providers/AuthProvider';
 
 const Register = () => {
     const {createUser} = useContext(AuthContext)
-
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [accepted, setAccepted] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
 
     const handleSubmit = (event) => {
@@ -35,6 +33,10 @@ const Register = () => {
     const togglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
+
+    const handleAccepted = event => {
+        setAccepted(event.target.checked);
+    }
 
     return (
         <Col className='mx-auto shadow-sm p-3 mb-5 bg-white rounded' xl={4} xs={12}>
@@ -93,10 +95,20 @@ const Register = () => {
                     className="ml-2"
                     onChange={togglePasswordVisibility}
                     />
+
+                    <Form.Check
+                    onClick={handleAccepted}
+                    type="checkbox"
+                    name='accept'
+                    label={<>Accept <Link to='/terms'>Terms and Condition</Link> </>}
+                    className="ml-2 mt-4"
+                    />
                 </div>
                 </Form.Group>
 
-                <Button className='w-100' variant="primary" type="submit">
+                
+
+                <Button disabled={!accepted} className='w-100' variant="primary" type="submit">
                 Sign Up
                 </Button>
                     
