@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom';
 import '../style/style.css'
 import { useContext } from 'react';
 import { AuthContext } from '../providers/AuthProvider';
+import useTitle from '../hooks/useTitle';
 
 
 const Register = () => {
     const {createUser} = useContext(AuthContext)
     const [accepted, setAccepted] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
-
+    useTitle('register')
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -40,7 +41,6 @@ const Register = () => {
 
     return (
         <Col className='mx-auto shadow-sm p-3 mb-5 bg-white rounded' xl={4} xs={12}>
-
         <Container className="p-5  mt-3">
             <Form onSubmit={handleSubmit}>
                 <h3 className="text-center mb-2 text-secondary">Please Register your account</h3>
